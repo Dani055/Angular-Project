@@ -1,0 +1,37 @@
+<h1 class='form'>Register</h1>
+<div class="form">
+  <form #regForm="ngForm" (submit)="register(regForm)">
+    <label for="username">Username:</label>
+    <input #username="ngModel" ngModel type="text" id="username" name="username" required /><br />
+    <div *ngIf="username?.touched && username?.errors?.required" class="alert">
+      Name is required!
+    </div>
+
+    <label for="passowrd">Password:</label>
+    <input #password="ngModel" ngModel type="password" id="password" name="password" required /><br />
+    <div *ngIf="password?.touched && password?.errors?.required" class="alert">
+      Password is required!
+    </div>
+    <label for="firstName">First name:</label>
+    <input #firstName="ngModel" ngModel type="text" id="firstName" name="firstName" required /><br />
+    <div *ngIf="firstName?.touched && firstName?.errors?.required" class="alert">
+      First Name is required!
+    </div>
+
+    <label for="lastName">Last name:</label>
+    <input #lastName="ngModel" ngModel type="text" id="lastName" name="lastName" required /><br />
+    <div *ngIf="lastName?.touched && lastName?.errors?.required" class="alert">
+      Last Name is required!
+    </div>
+
+    <label for="imageUrl">Profile Picture:</label>
+    <input appImageValidator #imageUrl="ngModel" ngModel type="text" id="imageUrl" name="imageUrl" required /><br />
+    <div *ngIf="imageUrl?.touched && imageUrl?.errors?.required" class="alert">
+      Image Url is required!
+    </div>
+    <div *ngIf="regForm?.errors?.imageUrl" class="alert">
+        Image Link not Valid
+    </div>
+    <button [disabled]="regForm.invalid" type="submit">Register</button>
+  </form>
+</div>

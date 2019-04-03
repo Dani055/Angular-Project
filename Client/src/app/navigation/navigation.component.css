@@ -1,0 +1,28 @@
+header ul {
+    margin: 0;
+    padding: 15px;
+  }
+header {
+    height: 50px;
+    background-color: #520469;
+  }
+  
+header ul li {
+    display: inline-block;
+  }
+  
+header ul div.right {
+    float: right;
+    color: white;
+  }
+  
+header ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 0 1em;
+  }
+header ul li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }

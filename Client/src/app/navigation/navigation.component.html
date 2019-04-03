@@ -1,0 +1,32 @@
+<header>
+  <ul>
+    <li>
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/cars">All cars</a>
+    </li>
+    <li *ngIf="authService.isAdmin()">
+      <a routerLink="/car/create">Add car</a>
+    </li>
+    <li *ngIf="authService.isAuthenticated() && !authService.isAdmin()">
+      <a routerLink="/cars/myrents">My rents</a>
+    </li>
+
+    <div class="right">
+      <li *ngIf="authService.isAuthenticated()">Welcome, !</li>
+      <li *ngIf="authService.isAuthenticated()">
+        <a routerLink="/profile">Profile</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated()">
+        <a (click)="logout()">Logout</a>
+      </li>
+      <li *ngIf="!authService.isAuthenticated()">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="!authService.isAuthenticated()">
+        <a routerLink="/register">Register</a>
+      </li>
+    </div>
+  </ul>
+</header>
