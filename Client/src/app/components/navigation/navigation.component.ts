@@ -9,10 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   username: string;
+  isLoggedIn: boolean;
   constructor(public authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
+  ngDoCheck() {
     this.username = localStorage.getItem('username');
+    this.isLoggedIn = this.authService.isAuthenticated();
+  }
+  ngOnInit() {
+    
   }
   logout(){
     this.authService.logout();

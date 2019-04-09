@@ -1,0 +1,30 @@
+<h1 class="form">Add car</h1>
+<div class="form">
+  <form #cf="ngForm" (submit)="addCar()">
+    <label for="brand">Car Brand:</label>
+    <input #brand="ngModel" ngModel type="text" id="brand" name="brand" required/><br />
+    <div *ngIf="brand?.touched && brand?.errors?.required" class="alert">
+        Brand is required!
+    </div>
+
+    <label for="description">Description:</label>
+    <textarea #description="ngModel" ngModel id="description" name="description" required></textarea><br />
+    <div *ngIf="description?.touched && description?.errors?.required" class="alert">
+        Description is required!
+    </div>
+
+    <label for="image">Image:</label>
+    <input #imageUrl="ngModel" ngModel type="text" id="imageUrl" name="imageUrl" required/><br />
+    <div *ngIf="imageUrl?.touched && imageUrl?.errors?.required" class="alert">
+        Image Url is required!
+    </div>
+
+    <label for="price">Price per Day:</label>
+    <input #pricePerDay="ngModel" ngModel type="number" id="pricePerDay" name="pricePerDay" required/><br />
+    <div *ngIf="pricePerDay?.touched && pricePerDay?.errors?.required" class="alert">
+        Price per day is required!
+    </div>
+
+    <button [disabled]="cf.invalid" type="submit">Create</button>
+  </form>
+</div>

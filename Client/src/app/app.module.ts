@@ -5,11 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './core/services/auth.service';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { AddCarComponent } from './components/car/add-car/add-car.component';
+import { CarService } from './core/services/car.service';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { LoginComponent } from './components/authentication/login/login.componen
     NavigationComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,11 @@ import { LoginComponent } from './components/authentication/login/login.componen
     HttpClientModule,
     FormsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, CarService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

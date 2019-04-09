@@ -7,14 +7,14 @@
       <a routerLink="/cars">All cars</a>
     </li>
     <li *ngIf="authService.isAdmin()">
-      <a routerLink="/car/create">Add car</a>
+      <a routerLink="/cars/create">Add car</a>
     </li>
     <li *ngIf="authService.isAuthenticated() && !authService.isAdmin()">
       <a routerLink="/cars/myrents">My rents</a>
     </li>
 
     <div class="right">
-      <li *ngIf="authService.isAuthenticated()">Welcome, !</li>
+      <li *ngIf="isLoggedIn">Welcome, {{username}}!</li>
       <li *ngIf="authService.isAuthenticated()">
         <a routerLink="/profile">Profile</a>
       </li>
