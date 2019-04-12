@@ -13,6 +13,8 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { AddCarComponent } from './components/car/add-car/add-car.component';
 import { CarService } from './core/services/car.service';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { AllCarsComponent } from './components/car/all-cars/all-cars.component';
+import { MyRentedCarsComponent } from './components/car/my-rented-cars/my-rented-cars.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    AddCarComponent
+    AddCarComponent,
+    AllCarsComponent,
+    MyRentedCarsComponent
   ],
   imports: [
     BrowserModule,
