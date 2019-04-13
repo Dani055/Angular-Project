@@ -1,10 +1,4 @@
 <h1>My rented cars</h1>
 <div class="listings">
-  <div *ngFor="let car of cars" class="listing">
-    <h2>{{car.brand}}</h2>
-    <img src="{{car.imageUrl}}" alt=""/>
-    <h3>Description: {{car.description}}</h3>
-    <p>Price per day: {{car.pricePerDay}} Pounds</p>
-    <button (click)="removeRent(car._id)">Remove</button>    
-  </div> 
+  <app-car *ngFor="let car of cars" [car]="car"></app-car>
 </div>

@@ -17,6 +17,7 @@ import { AllCarsComponent } from './components/car/all-cars/all-cars.component';
 import { MyRentedCarsComponent } from './components/car/my-rented-cars/my-rented-cars.component';
 import { CarDetailsComponent } from './components/car/car-details/car-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CarComponent } from './components/car/car/car.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     AllCarsComponent,
     MyRentedCarsComponent,
     CarDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,

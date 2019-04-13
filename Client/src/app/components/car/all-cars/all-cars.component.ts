@@ -16,8 +16,4 @@ export class AllCarsComponent implements OnInit {
   ngOnInit() {
     this.cars = this.route.snapshot.data['data']['cars']
   }
-  rentCar(id){
-    this.carService.rentCar(id).subscribe((data) => {});
-    this.router.navigate(['/home']);
-  }
 }
