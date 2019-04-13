@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService){}
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        if (req.url.includes('car')) {
+        if (req.url.includes('car') || req.url.includes('profile')) {
             req = req.clone({
                 setHeaders: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

@@ -10,6 +10,11 @@ import { AllCarsComponent } from './components/car/all-cars/all-cars.component';
 import { AllCarsResolver } from './core/resolvers/all-cars.resolver';
 import { MyRentedCarsComponent } from './components/car/my-rented-cars/my-rented-cars.component';
 import { MyRentedCarsResolver } from './core/resolvers/my-rented-cars.resolver';
+import { CarDetailsComponent } from './components/car/car-details/car-details.component';
+import { SingleCarResolver } from './core/resolvers/single-car.resolver';
+import { ProfileResolver } from './core/resolvers/profile.resolver';
+import { ProfileComponent } from './components/profile/profile.component';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
@@ -18,6 +23,8 @@ const routes: Routes = [
   { path: 'cars/create', component: AddCarComponent, canActivate:[isAdminGuard] },
   { path: 'cars', resolve: {data: AllCarsResolver},component: AllCarsComponent},
   { path: 'cars/myrents',canActivate:[AuthGuard] ,resolve: {data: MyRentedCarsResolver},component: MyRentedCarsComponent},
+  { path: 'cars/details/:id',canActivate:[isAdminGuard] ,resolve: {data: SingleCarResolver},component: CarDetailsComponent},
+  { path: 'profile', canActivate:[AuthGuard] ,resolve: {data: ProfileResolver},component: ProfileComponent},
 ];
 
 @NgModule({

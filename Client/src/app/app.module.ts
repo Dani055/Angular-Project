@@ -15,6 +15,8 @@ import { CarService } from './core/services/car.service';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { AllCarsComponent } from './components/car/all-cars/all-cars.component';
 import { MyRentedCarsComponent } from './components/car/my-rented-cars/my-rented-cars.component';
+import { CarDetailsComponent } from './components/car/car-details/car-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MyRentedCarsComponent } from './components/car/my-rented-cars/my-rented
     LoginComponent,
     AddCarComponent,
     AllCarsComponent,
-    MyRentedCarsComponent
+    MyRentedCarsComponent,
+    CarDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
