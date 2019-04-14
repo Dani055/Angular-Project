@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class isAdminGuard implements CanActivate {
 
   constructor(
     private authService : AuthService,
-    private router : Router
+    private router : Router,
+    private toastr: ToastrService
   ) { }
 
   canActivate(
@@ -25,7 +27,7 @@ export class isAdminGuard implements CanActivate {
     if (this.authService.isAdmin()) {
       return true;
     }  
-
+    this.toastr.error('You are not authorized')
     this.router.navigate(['/home']);
     
     return false;

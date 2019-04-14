@@ -6,22 +6,31 @@
     <div *ngIf="username?.touched && username?.errors?.required" class="alert">
       Name is required!
     </div>
-
     <label for="passowrd">Password:</label>
-    <input #password="ngModel" ngModel type="password" id="password" name="password" required /><br />
+    <input #password="ngModel" minlength="5" ngModel type="password" id="password" name="password" required /><br />
     <div *ngIf="password?.touched && password?.errors?.required" class="alert">
       Password is required!
     </div>
+    <div *ngIf="password.errors?.minlength" class="alert">
+      Password must be at least 5 characters long
+    </div>
+
     <label for="firstName">First name:</label>
-    <input #firstName="ngModel" ngModel type="text" id="firstName" name="firstName" required /><br />
+    <input #firstName="ngModel" minlength="5" ngModel type="text" id="firstName" name="firstName" required /><br />
     <div *ngIf="firstName?.touched && firstName?.errors?.required" class="alert">
       First Name is required!
     </div>
+    <div *ngIf="firstName.errors?.minlength" class="alert">
+      First Name must be at least 5 characters long
+    </div>
 
     <label for="lastName">Last name:</label>
-    <input #lastName="ngModel" ngModel type="text" id="lastName" name="lastName" required /><br />
+    <input #lastName="ngModel" minlength="5" ngModel type="text" id="lastName" name="lastName" required /><br />
     <div *ngIf="lastName?.touched && lastName?.errors?.required" class="alert">
       Last Name is required!
+    </div>
+    <div *ngIf="lastName?.errors?.minlength" class="alert">
+      Last Name must be at least 5 characters long
     </div>
 
     <label for="imageUrl">Profile Picture:</label>

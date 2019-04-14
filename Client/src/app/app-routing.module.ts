@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/shared/home/home.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import {AuthGuard} from './core/guards/auth.guard'
@@ -13,7 +13,7 @@ import { MyRentedCarsResolver } from './core/resolvers/my-rented-cars.resolver';
 import { CarDetailsComponent } from './components/car/car-details/car-details.component';
 import { SingleCarResolver } from './core/resolvers/single-car.resolver';
 import { ProfileResolver } from './core/resolvers/profile.resolver';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './components/shared/profile/profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },

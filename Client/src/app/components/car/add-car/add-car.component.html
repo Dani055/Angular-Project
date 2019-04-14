@@ -8,19 +8,25 @@
     </div>
 
     <label for="description">Description:</label>
-    <textarea #description="ngModel" ngModel id="description" name="description" required></textarea><br />
+    <textarea minlength="10" #description="ngModel" ngModel id="description" name="description" required></textarea><br />
     <div *ngIf="description?.touched && description?.errors?.required" class="alert">
         Description is required!
     </div>
+    <div *ngIf="description.errors?.minlength" class="alert">
+      Description must be at least 10 characters long!
+    </div>
 
     <label for="image">Image:</label>
-    <input #imageUrl="ngModel" ngModel type="text" id="imageUrl" name="imageUrl" required/><br />
+    <input appImageValidator #imageUrl="ngModel" ngModel type="text" id="imageUrl" name="imageUrl" required/><br />
     <div *ngIf="imageUrl?.touched && imageUrl?.errors?.required" class="alert">
         Image Url is required!
     </div>
+    <div *ngIf="cf?.errors?.imageUrl" class="alert">
+        Image Link not Valid
+    </div>
 
     <label for="price">Price per Day:</label>
-    <input #pricePerDay="ngModel" ngModel type="number" id="pricePerDay" name="pricePerDay" required/><br />
+    <input #pricePerDay="ngModel" min="0"  ngModel type="number" id="pricePerDay" name="pricePerDay" required/><br />
     <div *ngIf="pricePerDay?.touched && pricePerDay?.errors?.required" class="alert">
         Price per day is required!
     </div>
