@@ -12,17 +12,17 @@ import { ImageValidatorDirective } from './directives/image-validator.directive'
         NavigationComponent,
         HomeComponent,
         ProfileComponent,
-        ImageValidatorDirective,
+        ImageValidatorDirective
     ],
     imports:[
         CommonModule,
-        RouterModule,
+        RouterModule
     ],
     exports:[
         NavigationComponent,
         HomeComponent,
         ProfileComponent,
-        ImageValidatorDirective,
+        ImageValidatorDirective
     ]
 })
 export class SharedModule{

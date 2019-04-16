@@ -13,7 +13,7 @@ import { AuthenticationModule } from './components/authentication/authentication
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

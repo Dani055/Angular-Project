@@ -7,8 +7,7 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
 import { CarComponent } from './car/car.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { MyRentedCarsComponent } from './my-rented-cars/my-rented-cars.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations:[
@@ -16,12 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
         AllCarsComponent,
         CarComponent,
         CarDetailsComponent,
-        MyRentedCarsComponent
+        MyRentedCarsComponent,
     ],
     imports:[
         CommonModule,
         CarRoutingModule,
         FormsModule,
+        SharedModule
     ]
 })
 export class CarModule{
