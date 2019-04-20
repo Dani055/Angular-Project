@@ -10,7 +10,7 @@ export class ImageValidatorDirective {
   @HostListener('input')
   inputHandler(){
     let el:string = this.elRef.nativeElement.value;
-    if(el.startsWith('http') && (el.endsWith('png') || el.endsWith('png'))){
+    if(el.startsWith('http') && (el.endsWith('png') || el.endsWith('jpg'))){
       this.elRef.nativeElement.style.borderColor = 'green';
       this.regForm.control.setErrors(null);
     }
