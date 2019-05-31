@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./car-details.component.css']
 })
 export class CarDetailsComponent implements OnInit {
-  @ViewChild('ef') ef: NgForm;
+  @ViewChild('ef', { static: true }) ef: NgForm;
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute,) { }
   car: Car;
   ngOnInit() {

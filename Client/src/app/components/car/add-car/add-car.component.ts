@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-car.component.css']
 })
 export class AddCarComponent implements OnInit {
-  @ViewChild('cf') cf: NgForm;
+  @ViewChild('cf', { static: true }) cf: NgForm;
   constructor(private carService: CarService, private router: Router) { }
 
   ngOnInit() {

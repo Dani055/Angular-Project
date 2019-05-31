@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('logForm') logForm: NgForm;
+  @ViewChild('logForm', { static: true }) logForm: NgForm;
   constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit() {

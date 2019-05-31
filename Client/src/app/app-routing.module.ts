@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile',canActivate:[AuthGuard],resolve:{data: ProfileResolver} ,component: ProfileComponent},
-  { path: 'cars', loadChildren: './components/car/car.module#CarModule' },
+  { path: 'cars', loadChildren: () => import('./components/car/car.module').then(m => m.CarModule) },
 ];
 
 @NgModule({
