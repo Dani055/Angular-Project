@@ -14,6 +14,13 @@ export class AllCarsComponent implements OnInit {
   constructor(private carService: CarService, public authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.cars = this.route.snapshot.data['data']['cars']
+    this.loadCars()
+    // this.cars = this.route.snapshot.data['data']['cars']
+  }
+  rentCar(id){
+    this.carService.rentCar(id).subscribe((data) => {this.loadCars()});
+  }
+  loadCars(){
+    this.carService.getAllCars().subscribe((data) => {this.cars = data['cars']})
   }
 }

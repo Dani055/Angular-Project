@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
-import { CarService } from 'src/app/core/services/car.service';
 import { Car } from 'src/app/core/models/Car';
 
 @Component({
@@ -12,15 +11,15 @@ import { Car } from 'src/app/core/models/Car';
 export class CarComponent implements OnInit {
   @Input() car: Car;
   @Input() isAllCarsPage: string;
-  constructor(private authService: AuthService, private router: Router, private carService: CarService) { }
+  @Output() rentCarEmitter = new EventEmitter<string>();
+  @Output() removeRentEmitter = new EventEmitter<string>();
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {}
   rentCar(id){
-    this.carService.rentCar(id).subscribe((data) => {});
-    this.router.navigate(['/home']);
+    this.rentCarEmitter.emit(id);
   }
   removeRent(id){
-    this.carService.removeRent(id).subscribe((data) => {})
-    this.router.navigate(['/home'])
+    this.removeRentEmitter.emit(id)
   }
 }

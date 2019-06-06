@@ -1,4 +1,4 @@
 <h1>All cars</h1>
 <div class="listings">
-  <app-car *ngFor="let car of cars" [car]="car" [isAllCarsPage]="car.brand"></app-car>
+  <app-car *ngFor="let car of cars" [car]="car" (rentCarEmitter)="rentCar($event)" [isAllCarsPage]="car.brand"></app-car>
 </div>

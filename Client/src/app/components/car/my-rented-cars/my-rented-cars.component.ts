@@ -15,4 +15,10 @@ export class MyRentedCarsComponent implements OnInit {
   ngOnInit() {
     this.cars = this.route.snapshot.data['data']['cars']
   }
+  removeRent(id){
+    this.carService.removeRent(id).subscribe((res) => {this.loadCars()})
+  }
+  loadCars(){
+    this.carService.getMyRentedCars().subscribe((data) => {this.cars = data['cars']})
+  }
 }

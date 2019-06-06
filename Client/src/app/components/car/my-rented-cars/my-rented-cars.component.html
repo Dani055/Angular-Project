@@ -1,4 +1,4 @@
 <h1>My rented cars</h1>
 <div class="listings">
-  <app-car *ngFor="let car of cars" [car]="car"></app-car>
+  <app-car *ngFor="let car of cars" (removeRentEmitter)="removeRent($event)" [car]="car"></app-car>
 </div>

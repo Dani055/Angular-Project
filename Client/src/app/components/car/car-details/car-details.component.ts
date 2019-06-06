@@ -18,10 +18,10 @@ export class CarDetailsComponent implements OnInit {
   }
   editCar(){
     this.carService.editCar(this.route.snapshot.params['id'], this.ef.value).subscribe((data) => {})
-    this.router.navigate(['/home'])
+    this.router.navigate(['/cars/all'])
   }
   deleteCar(){
     this.carService.deleteCar(this.route.snapshot.params['id']).subscribe((data) => {})
-    this.router.navigate(['/home'])
+    this.router.navigate(['/cars/all'])
   }
 }

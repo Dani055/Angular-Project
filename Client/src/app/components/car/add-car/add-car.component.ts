@@ -16,7 +16,7 @@ export class AddCarComponent implements OnInit {
   }
   addCar(){
     this.carService.addCar(this.cf.value).subscribe((data) => {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/cars/all'])
     })
   }
 }
