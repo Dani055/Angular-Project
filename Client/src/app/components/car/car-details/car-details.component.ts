@@ -17,11 +17,15 @@ export class CarDetailsComponent implements OnInit {
     this.car = this.route.snapshot.data['data']['car'];
   }
   editCar(){
-    this.carService.editCar(this.route.snapshot.params['id'], this.ef.value).subscribe((data) => {})
-    this.router.navigate(['/cars/all'])
+    this.carService.editCar(this.route.snapshot.params['id'], this.ef.value).subscribe((data) => {
+      this.router.navigate(['/cars/all'])
+    })
+    
   }
   deleteCar(){
-    this.carService.deleteCar(this.route.snapshot.params['id']).subscribe((data) => {})
-    this.router.navigate(['/cars/all'])
+    this.carService.deleteCar(this.route.snapshot.params['id']).subscribe((data) => {
+      this.router.navigate(['/cars/all'])
+    })
+    
   }
 }
