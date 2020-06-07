@@ -24,6 +24,7 @@ const carSchema = new Schema({
   },
   renter:{
     type:mongoose.Schema.Types.ObjectId,
+	default: null,
     ref:'User'
   }
 });

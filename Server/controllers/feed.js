@@ -2,7 +2,7 @@ const Car = require('../models/Car');
 const User = require('../models/User');
 module.exports = {
   getCars: (req, res) => {
-    Car.find({ isRented: false })
+    Car.find().populate('renter')
       .then((cars) => {
         res
           .status(200)
@@ -40,9 +40,9 @@ module.exports = {
       let car = await Car.findById(carId)
 
       if(car.isRented == true){
-        res.status(500)
+        res.status(403)
         .json({
-          error: 'Car is already rented'
+          message: 'Car is already rented'
         })
         return;
       }

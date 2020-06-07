@@ -31,8 +31,16 @@ export class ErrorInterceptor implements HttpInterceptor {
             if(err.status === 401){
                 this.toastr.error(err.error.message)
             }
-            if(err.status === 500){
+            if(err.status === 422){
+                for(let entry of err.error.errors){
+                   this.toastr.error(entry.msg) 
+                }
+            }
+			if(err.status === 403){
                 this.toastr.error(err.error.message)
+            }
+            if(err.status === 500){
+                this.toastr.error(err.error.error)
             }
             return throwError(err)
         })

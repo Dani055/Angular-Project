@@ -1,18 +1,20 @@
 const router = require('express').Router();
-const { body } = require('express-validator/check');
+const { body } = require('express-validator');
 const authController = require('../controllers/auth');
 const User = require('../models/User');
 
 router.post('/signup',
   [
     body('username')
+      .trim()
+      .isLength({min: 3})
       .withMessage('Please enter a valid username.')
       .custom((value, { req }) => {
         return User.findOne({ username: value }).then(userDoc => {
           if (userDoc) {
             return Promise.reject('Username address already exists!');
           }
-        })
+        }) 
       }),
     body('password')
       .trim()

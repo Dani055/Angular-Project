@@ -4,6 +4,7 @@
   <h3>Description: {{car.description}}</h3>
   <p>Price per day: {{car.pricePerDay}} Pounds</p>
   <button *ngIf="authService.isAdmin() && isAllCarsPage" [routerLink]="['/cars/details/', car._id]">Edit</button>
-  <button *ngIf="!authService.isAdmin() && authService.isAuthenticated() && isAllCarsPage" (click)="rentCar(car._id)">Rent</button>
+  <button *ngIf="!authService.isAdmin() && authService.isAuthenticated() && isAllCarsPage && !car.isRented" (click)="rentCar(car._id)">Rent</button>
+  <p *ngIf="car.isRented && isAllCarsPage">Rented by {{car.renter.username}}</p>
   <button *ngIf="!isAllCarsPage" (click)="removeRent(car._id)">Remove</button>    
 </div>
